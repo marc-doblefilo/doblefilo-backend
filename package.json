@@ -23,7 +23,9 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "github-api": "^3.4.0",
     "mariadb": "^2.5.4",
-    "nodemon": "^2.0.10"
+    "nodemon": "^2.0.10",
+    "request": "^2.88.2"
   }
 }
