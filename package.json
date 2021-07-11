@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "start": "nodemon server.js --exec babel-node --presets env",
     "release": "npm run clean && npm run build && npm run serve",
     "clean": "rm -rf dist && mkdir dist",
     "build": "babel . -s -D -d dist --presets env --ignore node_modules",
-    "serve": "node dist/server.js"
+    "serve": "node dist/server.js",
+    "postinstall": "husky install"
   },
   "author": "",
   "license": "ISC",
@@ -21,9 +23,12 @@
     "passport": "^0.4.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "github-api": "^3.4.0",
+    "husky": "^7.0.1",
     "mariadb": "^2.5.4",
     "nodemon": "^2.0.10",
     "request": "^2.88.2"

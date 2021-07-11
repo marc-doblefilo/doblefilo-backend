@@ -20,7 +20,7 @@ async function getAllRepos(list){
   const promises = list.map(function (item) { 
       return axios.get(item)
           .then(resp => {
-              const sortedData = resp.data.sort((a, b) => b.stargazers_count - a.stargazers_count).slice(0,4);
+              const sortedData = resp.data.sort((a, b) => b.stargazers_count - a.stargazers_count).slice(0,3);
 
               return sortedData
           });
@@ -30,7 +30,7 @@ async function getAllRepos(list){
 
     repo = [].concat.apply([], repo); 
 
-    let sortedData = repo.sort((a, b) => b.stargazers_count - a.stargazers_count).slice(0,4);
+    let sortedData = repo.sort((a, b) => b.stargazers_count - a.stargazers_count).slice(0,3);
 
     return sortedData.map(value => {
         return {
@@ -67,7 +67,7 @@ app.get('/repos', (req, res) => {
 
           }else{
 
-              let sortedData = resp.data.sort((a, b) => b.stargazers_count - a.stargazers_count).slice(0,4);
+              let sortedData = resp.data.sort((a, b) => b.stargazers_count - a.stargazers_count).slice(0,3);
               
               sortedData = sortedData.map(value => {
                   return {
