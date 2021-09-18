@@ -1,0 +1,18 @@
+version: '3.7'
+
+    services:
+        doblefilo-backend-prod:
+                container_name: doblefilo_backend
+                build:
+                        context: ./doblefilo-backend/
+                        dockerfile: Dockerfile
+                volumes:
+                        - './doblefilo-backend/:/usr/src/app'
+                        - '/app/node_modules'
+                ports:
+                        - 8081:8081
+                environment:
+                        - CHOKIDAR_USEPOLLING=true
+                depends_on:
+                        - doblefilo-frontend
+                        - doblefilo-db
