@@ -1,13 +1,13 @@
 version: '3.7'
 
-    services:
+services:
         doblefilo-backend-prod:
                 container_name: doblefilo_backend-prod
                 build:
                         context: .
                         dockerfile: Dockerfile
                 volumes:
-                        - './doblefilo-backend/:/usr/src/app'
+                        - '.:/usr/src/app'
                         - '/app/node_modules'
                 ports:
                         - 8081:8081
